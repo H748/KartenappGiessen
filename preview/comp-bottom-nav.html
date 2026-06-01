@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{padding:0;background:var(--cream-100)}
+  .nav{display:flex;background:var(--cream-50);padding:14px 8px 18px;box-shadow:0 -6px 20px rgba(0,25,68,.06);max-width:640px;margin:24px auto}
+  .tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--navy-300);cursor:pointer}
+  .tab.on{color:var(--red-600)}
+  .tab .lucide{width:24px;height:24px}
+  .tab span{font-family:var(--font-body);font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+</style></head><body>
+  <div class="nav">
+    <div class="tab on"><i data-lucide="map"></i><span>Karte</span></div>
+    <div class="tab"><i data-lucide="compass"></i><span>Touren</span></div>
+    <div class="tab"><i data-lucide="info"></i><span>Info</span></div>
+  </div>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>lucide.createIcons();</script>
+</body></html>

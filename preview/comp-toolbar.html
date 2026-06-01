@@ -1,0 +1,25 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{padding:24px;background:var(--cream-100);display:flex;flex-direction:column;gap:20px;align-items:flex-start}
+  .seg{display:inline-flex;gap:6px;background:var(--cream-50);padding:8px;border-radius:var(--r-pill);box-shadow:var(--sh-2)}
+  .seg button{width:50px;height:50px;border-radius:50%;border:0;cursor:pointer;display:grid;place-items:center;background:transparent;color:var(--navy-700)}
+  .seg button.on{background:var(--navy-900);color:#fff}
+  .seg .lucide{width:21px;height:21px}
+  .pill-toggle{display:inline-flex;background:var(--cream-50);border-radius:var(--r-pill);padding:6px;box-shadow:var(--sh-1);gap:4px}
+  .pill-toggle button{border:0;background:transparent;font-family:var(--font-body);font-weight:700;font-size:13px;color:var(--navy-500);padding:8px 16px;border-radius:var(--r-pill);cursor:pointer}
+  .pill-toggle button.on{background:var(--navy-900);color:#fff}
+  .cap{font-size:11px;color:var(--navy-500)}
+</style></head><body>
+  <div class="seg">
+    <button class="on" title="Audio"><i data-lucide="mic"></i></button>
+    <button title="Dokument"><i data-lucide="file-text"></i></button>
+    <button title="Galerie"><i data-lucide="image"></i></button>
+  </div>
+  <div class="pill-toggle">
+    <button class="on">DE</button><button>EN</button><button>Leichte Sprache</button>
+  </div>
+  <div class="cap">Schwebende Medien-Umschalter (Audio / Dokument / Galerie) und Sprach-/Modus-Toggle (DE · EN · Leichte Sprache).</div>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>lucide.createIcons();</script>
+</body></html>

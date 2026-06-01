@@ -1,0 +1,27 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{padding:24px;background:var(--map-land)}
+  .card{background:var(--cream-50);border-radius:var(--r-xl);box-shadow:var(--sh-float);padding:16px;display:flex;gap:16px;max-width:620px;align-items:center}
+  .thumb{width:108px;height:108px;border-radius:var(--r-lg);object-fit:cover;flex-shrink:0;box-shadow:var(--sh-1)}
+  .body{flex:1;min-width:0}
+  .top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+  .title{font-family:var(--font-display);font-weight:700;font-size:23px;color:var(--navy-900);line-height:1.12;margin:0}
+  .active{background:var(--red-100);color:var(--red-600);font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:var(--r-pill);flex-shrink:0}
+  .desc{color:var(--navy-500);font-size:15px;margin-top:6px;line-height:1.4}
+  .dots{display:flex;gap:10px;background:var(--paper-200);border-radius:var(--r-pill);padding:10px 16px;margin-top:14px;width:max-content}
+  .dots i{width:9px;height:9px;border-radius:50%;background:var(--navy-300)}
+  .dots i.on{background:var(--red-600)}
+</style></head><body>
+  <div class="card">
+    <img class="thumb" src="../assets/poi-roedgener-strasse.png" alt="">
+    <div class="body">
+      <div class="top">
+        <h3 class="title">Rödgener Straße</h3>
+        <span class="active">Aktiv</span>
+      </div>
+      <div class="desc">Ehemalige Kasernenanlage &amp; Notaufnahmelager.</div>
+      <div class="dots"><i class="on"></i><i></i><i></i></div>
+    </div>
+  </div>
+</body></html>

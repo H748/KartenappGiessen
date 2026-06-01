@@ -1,0 +1,28 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{padding:24px;display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+  .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .eyebrow-chip{background:var(--chip);color:var(--navy-700);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:var(--r-pill)}
+  .badge-active{background:var(--red-100);color:var(--red-600);font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:var(--r-pill)}
+  .badge-featured{background:var(--navy-900);color:#fff;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:var(--r-pill)}
+  .badge-dot{display:inline-flex;align-items:center;gap:7px;color:var(--red-600);font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+  .badge-dot::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red-600)}
+  .badge-loc{display:inline-flex;align-items:center;gap:6px;color:var(--red-600);font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+  .lucide{width:13px;height:13px}
+  .cap{font-size:11px;color:var(--navy-500)}
+</style></head><body>
+  <div class="row">
+    <span class="eyebrow-chip">Digitale Ausstellung</span>
+    <span class="badge-active">Aktiv</span>
+    <span class="badge-featured">Featured</span>
+  </div>
+  <div class="row">
+    <span class="badge-loc"><i data-lucide="map-pin"></i> Historischer Ort</span>
+    <span class="badge-dot">Archiv-Spezial</span>
+    <span class="eyebrow" style="color:var(--red-600)">Kuratorische Auswahl</span>
+  </div>
+  <div class="cap">Eyebrows: pill-Chip oder reiner Text. Status-Badges immer GROSSBUCHSTABEN, weite Laufweite.</div>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>lucide.createIcons();</script>
+</body></html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{padding:24px;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+  .row{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .btn{font-family:var(--font-body);font-weight:700;font-size:16px;border:0;cursor:pointer;
+    display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:var(--r-md);
+    transition:transform .12s ease, background .15s ease}
+  .btn:active{transform:scale(.97)}
+  .btn-primary{background:var(--red-600);color:#fff;box-shadow:var(--sh-2)}
+  .btn-primary:hover{background:var(--red-700)}
+  .btn-secondary{background:var(--chip);color:var(--navy-900)}
+  .btn-secondary:hover{background:#dcd8cf}
+  .btn-dark{background:#fff;color:var(--navy-900)}
+  .btn-text{background:transparent;color:var(--red-600);padding:14px 4px}
+  .btn-ghost-dark{background:var(--navy-900);color:var(--on-dark)}
+  .lucide{width:19px;height:19px}
+  .cap{font-size:11px;color:var(--navy-500)}
+</style></head><body>
+  <div class="row">
+    <button class="btn btn-primary">Rundgang starten <i data-lucide="arrow-right"></i></button>
+    <button class="btn btn-secondary">Informationen</button>
+    <button class="btn btn-text">Karte öffnen <i data-lucide="chevron-right"></i></button>
+  </div>
+  <div class="row">
+    <button class="btn btn-ghost-dark">Details ansehen</button>
+    <button class="btn btn-secondary" style="border-radius:var(--r-pill)">Auf Karte zeigen</button>
+  </div>
+  <div class="cap">Primär = Brick. Sekundär = Chip. Press = scale .97. Radius 16px, Hit-Target ≥ 48px.</div>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>lucide.createIcons();</script>
+</body></html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ankunft: Gießen — Kartenapp (Druck / PDF)</title>
+  <link rel="stylesheet" href="../../colors_and_type.css">
+  <link rel="stylesheet" href="app.css">
+  <style>
+    /* ---- Print layout overrides (do not touch app.css) ---- */
+    body { background: #e9eae3 !important; display: block !important; place-items: initial !important; }
+    .print-doc { display: flex; flex-direction: column; align-items: center; gap: 26px; padding: 26px 0; }
+    .print-page { break-before: page; display: flex; flex-direction: column; align-items: center; }
+    .print-page:first-child { break-before: auto; }
+    .pcaption { font-family: var(--font-body); font-weight: 700; font-size: 12px; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--navy-500); margin-bottom: 12px; }
+
+    .pdevice { width: 390px; background: var(--cream-50); border-radius: 30px; overflow: hidden;
+      box-shadow: 0 0 0 1px var(--line), var(--sh-3); display: flex; flex-direction: column; }
+    .pbody { position: relative; }
+    /* Map = fixed device frame so the absolutely-positioned overlays lay out correctly */
+    .pbody--map { height: 770px; }
+    .pbody--map .screen { position: absolute; inset: 0; }
+    /* Flowing screens: let content size the page */
+    .pbody--flow .screen { position: static; }
+    .pbody--flow .scroll { overflow: visible; }
+
+    /* Avoid ugly splits across pages */
+    .feature-card, .tour-card, .audio-card, .facts-panel, .src-row, .d-gallery,
+    .promo-card, .special-card, .preview-card, .d-quote { break-inside: avoid; }
+
+    @media print {
+      @page { size: portrait; margin: 0.6cm; }
+      html, body { background: #fff !important; }
+      .print-doc { gap: 0; padding: 0; }
+      .pdevice { box-shadow: none; border: 1px solid var(--line); border-radius: 20px; }
+      .pcaption { color: var(--navy-700); }
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel" src="Shared.jsx"></script>
+  <script type="text/babel" src="PoiData.jsx"></script>
+  <script type="text/babel" src="WelcomeScreen.jsx"></script>
+  <script type="text/babel" src="MapScreen.jsx"></script>
+  <script type="text/babel" src="DetailScreen.jsx"></script>
+  <script type="text/babel" src="ToursScreen.jsx"></script>
+  <script type="text/babel">
+    const noop = () => {};
+    function DevicePage({ caption, fixedMap, nav, children }) {
+      return (
+        <div className="print-page">
+          <div className="pcaption">{caption}</div>
+          <div className="pdevice">
+            <StatusBar />
+            <div className={"pbody " + (fixedMap ? "pbody--map" : "pbody--flow")}>{children}</div>
+            {nav && <BottomNav active={nav} onNav={noop} />}
+          </div>
+        </div>
+      );
+    }
+
+    function PrintDoc() {
+      React.useEffect(() => {
+        if (window.lucide) window.lucide.createIcons({ attrs: { "stroke-width": 2 } });
+      });
+      const roedgener = (window.POIS || []).find((p) => p.id === "roedgener") || null;
+      return (
+        <div className="print-doc">
+          <DevicePage caption="01 · Willkommen">
+            <WelcomeScreen onOpenMap={noop} onOpenTours={noop} />
+          </DevicePage>
+          <DevicePage caption="02 · Interaktive Karte" fixedMap nav="map">
+            <MapScreen onOpenDetail={noop} onMenu={noop} />
+          </DevicePage>
+          <DevicePage caption="03 · POI-Detail" nav="map">
+            <DetailScreen poi={roedgener} onBack={noop} onMenu={noop} />
+          </DevicePage>
+          <DevicePage caption="04 · Kuratierte Touren" nav="tours">
+            <ToursScreen onMenu={noop} onOpenDetail={noop} />
+          </DevicePage>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<PrintDoc />);
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{padding:22px}
+  .row{display:flex;gap:12px;flex-wrap:wrap}
+  .tx{flex:1;min-width:150px;background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:14px}
+  .tx.dark{background:var(--navy-900);border-color:transparent}
+  .lbl{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:8px}
+  .ex{font-size:18px;font-weight:700;line-height:1.3}
+  .ex small{display:block;font-size:13px;font-weight:400;margin-top:3px}
+</style></head><body>
+  <div class="row">
+    <div class="tx">
+      <div class="lbl" style="color:var(--navy-500)">Text auf Papier</div>
+      <div class="ex" style="color:var(--navy-900)">Navy 900 — Überschrift
+        <small style="color:var(--navy-500)">Navy 500 — Fließtext &amp; Bildunterschriften (#626D80)</small>
+      </div>
+    </div>
+    <div class="tx dark">
+      <div class="lbl" style="color:var(--on-dark-mut)">Text auf Dunkel</div>
+      <div class="ex" style="color:var(--on-dark)">Cream — Überschrift
+        <small style="color:var(--on-dark-mut)">On-Dark Muted 62% — Sekundärtext</small>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-top:12px">
+    <div class="tx" style="display:flex;align-items:center;gap:10px"><span style="width:18px;height:18px;border-radius:5px;border:1px solid var(--line);background:var(--cream-50)"></span><span style="font-size:13px;color:var(--navy-500)">Linie <b style="color:var(--navy-900)">rgba(0,25,68,.10)</b></span></div>
+    <div class="tx" style="display:flex;align-items:center;gap:10px"><a href="#" style="font-size:15px">Inline-Link &amp; Aktion</a><span style="font-size:13px;color:var(--navy-500)">Brick 600</span></div>
+  </div>
+</body></html>

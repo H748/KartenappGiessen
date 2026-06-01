@@ -1,0 +1,24 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{padding:38px 28px 30px;background:var(--cream-50)}
+  .wrap{max-width:600px}
+  .ends{display:flex;justify-content:space-between;font-family:var(--font-display);font-weight:700;font-size:14px;color:var(--navy-500);margin-bottom:30px;font-variant-numeric:tabular-nums}
+  .track{position:relative;height:4px;background:var(--line-strong);border-radius:2px}
+  .fill{position:absolute;left:0;top:0;height:4px;width:34%;background:var(--red-600);border-radius:2px}
+  .knob{position:absolute;top:50%;left:34%;transform:translate(-50%,-50%);width:24px;height:24px;border-radius:50%;background:var(--red-600);box-shadow:0 0 0 4px var(--cream-50),var(--sh-2);cursor:grab}
+  /* always-on current year bubble that tracks the knob */
+  .year{position:absolute;left:34%;bottom:26px;transform:translateX(-50%);background:var(--navy-900);color:#fff;font-family:var(--font-display);font-weight:700;font-size:16px;padding:6px 14px;border-radius:var(--r-pill);box-shadow:var(--sh-2);font-variant-numeric:tabular-nums}
+  .year::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:var(--navy-900)}
+  .cap{font-size:11px;color:var(--navy-500);margin-top:20px}
+</style></head><body>
+  <div class="wrap">
+    <div class="ends"><span>1945</span><span>2024</span></div>
+    <div class="track">
+      <div class="fill"></div>
+      <div class="year">1963</div>
+      <div class="knob"></div>
+    </div>
+    <div class="cap">Zeit-Slider — grafisch stufenlos. Das <b style="color:var(--navy-900)">aktuelle Jahr</b> wird stets über dem Regler angezeigt und folgt ihm. POIs erscheinen/verschwinden je Zeitabschnitt.</div>
+  </div>
+</body></html>
